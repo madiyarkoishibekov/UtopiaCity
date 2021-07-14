@@ -7,7 +7,7 @@ using UtopiaCity.Models.Emergency;
 namespace UtopiaCity.Services.Emergency
 {
     /// <summary>
-    /// Class to handle basic CRUD operations for <see cref="EmergencyReport"/>
+    /// Class to handle basic CRUD operations for <see cref="ClinicReport"/>
     /// </summary>
     public class EmergencyReportService
     {
@@ -19,11 +19,11 @@ namespace UtopiaCity.Services.Emergency
         }
 
         /// <summary>
-        /// Gets <see cref="EmergencyReport"/> by Id.
+        /// Gets <see cref="ClinicReport"/> by Id.
         /// </summary>
         /// <param name="id">Id of report.</param>
         /// <returns>Report if it exists, otherwise null.</returns>
-        public async Task<EmergencyReport> GetEmergencyReportById(string id)
+        public async Task<ClinicReport> GetEmergencyReportById(string id)
         {
             return await _dbContext.EmergencyReport.FirstOrDefaultAsync(x => x.Id.Equals(id));
         }
@@ -32,7 +32,7 @@ namespace UtopiaCity.Services.Emergency
         /// Gets list of all reports.
         /// </summary>
         /// <returns>List of all existing reports.</returns>
-        public async Task<List<EmergencyReport>> GetEmergencyReports()
+        public async Task<List<ClinicReport>> GetEmergencyReports()
         {
             return await _dbContext.EmergencyReport.ToListAsync();
         }
@@ -42,7 +42,7 @@ namespace UtopiaCity.Services.Emergency
         /// </summary>
         /// <param name="report">Report to add.</param>
         /// <returns>Task to await for.</returns>
-        public async Task AddEmergencyReport(EmergencyReport report)
+        public async Task AddEmergencyReport(ClinicReport report)
         {
             _dbContext.Add(report);
             await _dbContext.SaveChangesAsync();
@@ -53,7 +53,7 @@ namespace UtopiaCity.Services.Emergency
         /// </summary>
         /// <param name="report">Report to update.</param>
         /// <returns>Task to await for.</returns>
-        public async Task UpdateEmergencyReport(EmergencyReport report)
+        public async Task UpdateEmergencyReport(ClinicReport report)
         {
             _dbContext.Update(report);
             await _dbContext.SaveChangesAsync();
@@ -64,7 +64,7 @@ namespace UtopiaCity.Services.Emergency
         /// </summary>
         /// <param name="report">Report to delete</param>
         /// <returns>Task to await for.</returns>
-        public async Task DeleteEmergencyReport(EmergencyReport report)
+        public async Task DeleteEmergencyReport(ClinicReport report)
         {
             _dbContext.Remove(report);
             await _dbContext.SaveChangesAsync();

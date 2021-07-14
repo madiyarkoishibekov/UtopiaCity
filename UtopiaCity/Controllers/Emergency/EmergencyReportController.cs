@@ -44,7 +44,7 @@ namespace UtopiaCity.Controllers.Emergency
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(EmergencyReport newReport)
+        public async Task<IActionResult> Create(ClinicReport newReport)
         {
             if (ModelState.IsValid)
             {
@@ -73,7 +73,7 @@ namespace UtopiaCity.Controllers.Emergency
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(string id, EmergencyReport edited)
+        public async Task<IActionResult> Edit(string id, ClinicReport edited)
         {
             if (id != edited.Id)
             {

@@ -26,19 +26,19 @@ namespace UtopiaCity.Common.Initializers
                 return;
             }
 
-            var report1 = new EmergencyReport
+            var report1 = new ClinicReport
             {
                 Report = "Report 1",
                 ReportTime = DateTime.Now
             };
 
-            var report2 = new EmergencyReport
+            var report2 = new ClinicReport
             {
                 Report = "Report 2",
                 ReportTime = DateTime.Now
             };
 
-            var report3 = new EmergencyReport
+            var report3 = new ClinicReport
             {
                 Report = "Report 3",
                 ReportTime = DateTime.Now

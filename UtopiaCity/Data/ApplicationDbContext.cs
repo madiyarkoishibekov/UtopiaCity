@@ -13,7 +13,7 @@ namespace UtopiaCity.Data
         {
         }
 
-        public DbSet<EmergencyReport> EmergencyReport { get; set; }
+        public DbSet<ClinicReport> EmergencyReport { get; set; }
         
         public DbSet<SportComplex> SportComplex { get; set; }
         
