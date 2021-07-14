@@ -26,25 +26,25 @@ namespace UtopiaCity.Common.Initializers
                 return;
             }
 
-            var report141 = new ClinicReport
+            var report1 = new ClinicReport
             {
-                Report = "Report 141",
+                Report = "Report 1",
                 ReportTime = DateTime.Now
             };
 
-            var report142 = new ClinicReport
+            var report2 = new ClinicReport
             {
-                Report = "Report 142",
+                Report = "Report 2",
                 ReportTime = DateTime.Now
             };
 
-            var report143 = new ClinicReport
+            var report3 = new ClinicReport
             {
-                Report = "Report 143",
+                Report = "Report 3",
                 ReportTime = DateTime.Now
             };
 
-            context.AddRange(report141, report142, report143);
+            context.AddRange(report1, report2, report3);
             context.SaveChanges();
         }
     }
