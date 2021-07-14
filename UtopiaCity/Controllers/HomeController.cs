@@ -27,6 +27,11 @@ namespace UtopiaCity.Controllers
         {
             return View();
         }
+        /*
+        public IActionResult PoliceMain()
+        {
+            return View("./Police/PoliceMain");
+        }*/
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
