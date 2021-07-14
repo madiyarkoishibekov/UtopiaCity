@@ -2,43 +2,43 @@
 using System.Linq;
 using UtopiaCity.Common.Interfaces;
 using UtopiaCity.Data;
-using UtopiaCity.Models.Emergency;
+using UtopiaCity.Models.Clinic;
 
 namespace UtopiaCity.Common.Initializers
 {
-    public class EmergencyReportInitializer : ISubDbInitializer
+    public class ClinicReportInitializer : ISubDbInitializer
     {
         public void ClearSet(ApplicationDbContext context)
         {
-            if (!context.EmergencyReport.Any())
+            if (!context.ClinicReport.Any())
             {
                 return;
             }
 
-            context.RemoveRange(context.EmergencyReport.ToList());
+            context.RemoveRange(context.ClinicReport.ToList());
             context.SaveChanges();
         }
 
         public void InitializeSet(ApplicationDbContext context)
         {
-            if (context.EmergencyReport.Any())
+            if (context.ClinicReport.Any())
             {
                 return;
             }
 
-            var report1 = new EmergencyReport
+            var report1 = new ClinicReport
             {
                 Report = "Report 1",
                 ReportTime = DateTime.Now
             };
 
-            var report2 = new EmergencyReport
+            var report2 = new ClinicReport
             {
                 Report = "Report 2",
                 ReportTime = DateTime.Now
             };
 
-            var report3 = new EmergencyReport
+            var report3 = new ClinicReport
             {
                 Report = "Report 3",
                 ReportTime = DateTime.Now
