@@ -10,12 +10,15 @@ using UtopiaCity.Common;
 using UtopiaCity.Data;
 using UtopiaCity.Services.CityAdministration;
 using UtopiaCity.Services.Airport;
+using UtopiaCity.Services.Business;
 using UtopiaCity.Services.Emergency;
 using UtopiaCity.Services.Life;
 using UtopiaCity.Services.PublicCatering.Reservation;
 using UtopiaCity.Services.PublicCatering.RestaurantType;
 using UtopiaCity.Services.Sport;
 using UtopiaCity.Services.Timeline;
+using UtopiaCity.Models.CitizenAccount;
+using UtopiaCity.Services.CitizenAccount;
 
 namespace UtopiaCity
 {
@@ -34,7 +37,7 @@ namespace UtopiaCity
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+            services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
@@ -43,25 +46,33 @@ namespace UtopiaCity
             #region Services
 
             services.AddScoped<EmergencyReportService, EmergencyReportService>();
-          
             services.AddScoped<ResidentAccountService, ResidentAccountService>();
-          
+            services.AddScoped<MarriageService, MarriageService>();
             services.AddScoped<SportComplexService, SportComplexService>();
-
+            services.AddScoped<SportEventService, SportEventService>();
             services.AddScoped<FlightService, FlightService>();
             services.AddScoped<WeatherReportService, WeatherReportService>();
-
             services.AddScoped<TimelineService, TimelineService>();
-
             services.AddScoped<ScheduleService, ScheduleService>();
-
             services.AddScoped<PermitedConditonsService, PermitedConditonsService>();
-
             services.AddScoped<FlightService, FlightService>();
             services.AddScoped<WeatherReportService, WeatherReportService>();
             services.AddScoped<LifeService, LifeService>();
+<<<<<<< HEAD
             services.AddScoped<ReservationService, ReservationService>();
             services.AddScoped<RestaurantTypeService, RestaurantTypeService>();
+=======
+            services.AddScoped<IRouteApi, FlightRouteApiService>();
+            services.AddScoped<BankService, BankService>();
+            services.AddScoped<CompanyStatusService, CompanyStatusService>();
+            services.AddScoped<CompanyAppService, CompanyAppService>();
+            services.AddScoped<VacancyAppService, VacancyAppService>();
+            services.AddScoped<ProfessionAppService, ProfessionAppService>();
+            services.AddScoped<EmployeeAppService, EmployeeAppService>();
+            services.AddScoped<CitizensAccountService, CitizensAccountService>();
+            services.AddScoped<CitizenTaskService, CitizenTaskService>();
+
+>>>>>>> b1a0b8dda837d080f6b1da534566c19e73e66baf
 
             #endregion
 
