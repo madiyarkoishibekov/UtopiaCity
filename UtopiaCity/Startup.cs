@@ -58,10 +58,8 @@ namespace UtopiaCity
             services.AddScoped<FlightService, FlightService>();
             services.AddScoped<WeatherReportService, WeatherReportService>();
             services.AddScoped<LifeService, LifeService>();
-<<<<<<< HEAD
             services.AddScoped<ReservationService, ReservationService>();
             services.AddScoped<RestaurantTypeService, RestaurantTypeService>();
-=======
             services.AddScoped<IRouteApi, FlightRouteApiService>();
             services.AddScoped<BankService, BankService>();
             services.AddScoped<CompanyStatusService, CompanyStatusService>();
@@ -71,8 +69,6 @@ namespace UtopiaCity
             services.AddScoped<EmployeeAppService, EmployeeAppService>();
             services.AddScoped<CitizensAccountService, CitizensAccountService>();
             services.AddScoped<CitizenTaskService, CitizenTaskService>();
-
->>>>>>> b1a0b8dda837d080f6b1da534566c19e73e66baf
 
             #endregion
 

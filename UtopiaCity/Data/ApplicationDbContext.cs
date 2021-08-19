@@ -41,17 +41,13 @@ namespace UtopiaCity.Data
         public DbSet<PermitedModel> PermitedModel { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Airline> Airlines { get; set; }
-        public DbSet<RersidentAccount> RersidentAccount { get; set; }
         public DbSet<ResidentAccount> ResidentAccount { get; set; }
         public DbSet<TimelineModel> TimelineModel { get; set; }
         public DbSet<ScheduleModel> ScheduleModel { get; set; }
         public DbSet<Event> Events { get; set; }
-<<<<<<< HEAD
-        
         public DbSet<Restaurant> Restaurants { get; set; }
         public DbSet<RestaurantType> RestaurantTypes { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
-=======
         public DbSet<Bank> Banks { get; set; }
         public DbSet<CompanyStatus> CompanyStatuses { get; set; }
         public DbSet<Company> Companies { get; set; }
@@ -62,6 +58,5 @@ namespace UtopiaCity.Data
         public DbSet<AppUser> AppUser { get; set; }
         public DbSet<CitizensTask> CitizensTasks { get; set; }
         public DbSet<Marriage> Marriage { get; set; }
->>>>>>> b1a0b8dda837d080f6b1da534566c19e73e66baf
     }
 }

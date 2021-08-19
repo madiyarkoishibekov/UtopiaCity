@@ -11,7 +11,6 @@ namespace UtopiaCity.Data.Migrations
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
-#pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.16")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
@@ -436,6 +435,7 @@ namespace UtopiaCity.Data.Migrations
 
             modelBuilder.Entity("UtopiaCity.Models.Business.Bank", b =>
 
+
             modelBuilder.Entity("UtopiaCity.Models.CitizenAccount.CitizensTask", b =>
 
                 {
@@ -456,7 +456,7 @@ namespace UtopiaCity.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Banks");
-                });
+                }));
 
             modelBuilder.Entity("UtopiaCity.Models.Business.Company", b =>
                 {
@@ -508,7 +508,7 @@ namespace UtopiaCity.Data.Migrations
                 });
 
             modelBuilder.Entity("UtopiaCity.Models.Business.Employee", b =>
-
+                {
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -599,28 +599,28 @@ namespace UtopiaCity.Data.Migrations
                 });
 
             modelBuilder.Entity("UtopiaCity.Models.CityAdministration.RersidentAccount", b =>
+            {
+                b.Property<string>("FirstPersonData")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FirstPersonData")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("FirstPersonId")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FirstPersonId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<DateTime>("MarriageDate")
+                    .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("MarriageDate")
-                        .HasColumnType("datetime2");
+                b.Property<string>("SecondPersonData")
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SecondPersonData")
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("SecondPersonId")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SecondPersonId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.HasKey("Id");
 
-                    b.HasKey("Id");
-
-                    b.ToTable("Marriage");
-                });
+                b.ToTable("Marriage");
+            });
 
             modelBuilder.Entity("UtopiaCity.Models.CityAdministration.ResidentAccount", b =>
 
@@ -1016,7 +1016,6 @@ namespace UtopiaCity.Data.Migrations
                         .HasForeignKey("ForPassengerId");
                 });
 
-<<<<<<< HEAD
             modelBuilder.Entity("UtopiaCity.Models.PublicCatering.Reservation", b =>
                 {
                     b.HasOne("UtopiaCity.Models.PublicCatering.Restaurant", "Restaurant")
@@ -1029,7 +1028,7 @@ namespace UtopiaCity.Data.Migrations
                     b.HasOne("UtopiaCity.Models.PublicCatering.RestaurantType", "RestaurantType")
                         .WithMany()
                         .HasForeignKey("RestaurantTypeId");
-=======
+                });
 
             modelBuilder.Entity("UtopiaCity.Models.Airport.WeatherReport", b =>
                 {
@@ -1037,60 +1036,60 @@ namespace UtopiaCity.Data.Migrations
                         .WithMany()
                         .HasForeignKey("PermitedModelId");
 
-            modelBuilder.Entity("UtopiaCity.Models.Business.Company", b =>
-                {
-                    b.HasOne("UtopiaCity.Models.Business.Bank", "Bank")
-                        .WithMany("Companies")
-                        .HasForeignKey("BankId");
-
-                    b.HasOne("UtopiaCity.Models.Business.CompanyStatus", "CompanyStatus")
-                        .WithMany("Companies")
-                        .HasForeignKey("CompanyStatusId");
                 });
+
+            modelBuilder.Entity("UtopiaCity.Models.Business.Company", b =>
+        {
+            b.HasOne("UtopiaCity.Models.Business.Bank", "Bank")
+                .WithMany("Companies")
+                .HasForeignKey("BankId");
+
+            b.HasOne("UtopiaCity.Models.Business.CompanyStatus", "CompanyStatus")
+                .WithMany("Companies")
+                .HasForeignKey("CompanyStatusId");
+        });
 
             modelBuilder.Entity("UtopiaCity.Models.Business.Employee", b =>
-                {
-                    b.HasOne("UtopiaCity.Models.Business.Company", "Company")
-                        .WithMany("Employees")
-                        .HasForeignKey("CompanyId");
+        {
+            b.HasOne("UtopiaCity.Models.Business.Company", "Company")
+                .WithMany("Employees")
+                .HasForeignKey("CompanyId");
 
-                    b.HasOne("UtopiaCity.Models.Business.Profession", "Profession")
-                        .WithMany("Employees")
-                        .HasForeignKey("ProfessionId");
-                });
+            b.HasOne("UtopiaCity.Models.Business.Profession", "Profession")
+                .WithMany("Employees")
+                .HasForeignKey("ProfessionId");
+        });
 
             modelBuilder.Entity("UtopiaCity.Models.Business.Vacancy", b =>
-                {
-                    b.HasOne("UtopiaCity.Models.Business.Company", "Company")
-                        .WithMany("Vacancies")
-                        .HasForeignKey("CompanyId");
+        {
+            b.HasOne("UtopiaCity.Models.Business.Company", "Company")
+                .WithMany("Vacancies")
+                .HasForeignKey("CompanyId");
 
-                    b.HasOne("UtopiaCity.Models.Business.Profession", "Profession")
-                        .WithMany("Vacancies")
-                        .HasForeignKey("ProfessionId");
-
+            b.HasOne("UtopiaCity.Models.Business.Profession", "Profession")
+                .WithMany("Vacancies")
+                .HasForeignKey("ProfessionId");
+        });
             modelBuilder.Entity("UtopiaCity.Models.CityAdministration.ResidentAccount", b =>
-                {
-                    b.HasOne("UtopiaCity.Models.CityAdministration.Marriage", "Marriage")
-                        .WithMany()
-                        .HasForeignKey("MarriageId");
-                });
+        {
+            b.HasOne("UtopiaCity.Models.CityAdministration.Marriage", "Marriage")
+                .WithMany()
+                .HasForeignKey("MarriageId");
+        });
 
             modelBuilder.Entity("UtopiaCity.Models.Sport.SportEvent", b =>
-                {
-                    b.HasOne("UtopiaCity.Models.Sport.SportComplex", "SportComplex")
-                        .WithMany("SportEvents")
-                        .HasForeignKey("SportComplexId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
+        {
+            b.HasOne("UtopiaCity.Models.Sport.SportComplex", "SportComplex")
+                .WithMany("SportEvents")
+                .HasForeignKey("SportComplexId")
+                .OnDelete(DeleteBehavior.Cascade);
+        });
             modelBuilder.Entity("UtopiaCity.Models.CitizenAccount.CitizensTask", b =>
-                {
-                    b.HasOne("UtopiaCity.Models.CitizenAccount.AppUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
->>>>>>> b1a0b8dda837d080f6b1da534566c19e73e66baf
-                });
-#pragma warning restore 612, 618
+        {
+            b.HasOne("UtopiaCity.Models.CitizenAccount.AppUser", "User")
+                .WithMany()
+                .HasForeignKey("UserId");
+        });
+        }
         }
     }
-}
